@@ -17,10 +17,7 @@ public class ProvinceService {
 
     public List<ProvinceResponse> getAllProvinces() {
         List<ProvinceResponse> provinceResponses = new ArrayList<>();
-
         List<Province> provinces = provinceRepository.findAll();
-
-
         for (Province province : provinces) {
             ProvinceResponse response = ProvinceResponse.builder()
                     .id(province.getId())
@@ -28,9 +25,7 @@ public class ProvinceService {
                     .build();
             provinceResponses.add(response);
         }
-
         return provinceResponses;
     }
-
 }
 

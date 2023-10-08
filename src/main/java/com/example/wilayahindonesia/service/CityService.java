@@ -14,15 +14,11 @@ import java.util.stream.Collectors;
 
 @Service
 public class CityService {
-
     @Autowired
     private CityRepository cityRepository;
 
     public List<CityResponse> getCityByProvinceId(Long provinceId) {
-//        Optional<City> cities = cityRepository.findByProvinceId(provinceId);
-
         Optional<City> cities = Optional.ofNullable(cityRepository.findByProvinceId(provinceId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Province id is not found")));
-
         return cities.stream()
                 .map(city -> CityResponse.builder()
                         .id(city.getId())

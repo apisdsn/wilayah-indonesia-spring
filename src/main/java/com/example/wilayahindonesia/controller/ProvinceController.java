@@ -20,7 +20,6 @@ public class ProvinceController {
     @Autowired
     private ProvinceService provinceService;
 
-
     @GetMapping(value = "/province", produces = MediaType.APPLICATION_JSON_VALUE)
     public WebResponse<List<ProvinceResponse>> getAllProvinces() {
         List<ProvinceResponse> provinces = provinceService.getAllProvinces();

@@ -17,7 +17,6 @@ public class DistrictService {
 
     public List<DistrictResponse> getDistrictByCityId(Long cityId) {
         List<District> districts = districtRepository.findByCityId(cityId);
-
         return districts.stream()
                 .map(district -> DistrictResponse.builder()
                         .id(district.getId())

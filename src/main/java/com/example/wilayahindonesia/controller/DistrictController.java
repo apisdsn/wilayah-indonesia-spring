@@ -14,7 +14,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "/api/wilayah-indonesia")
-
 public class DistrictController {
     @Autowired
     private DistrictService districtService;
@@ -22,7 +21,6 @@ public class DistrictController {
     @GetMapping(path = "/district", produces = MediaType.APPLICATION_JSON_VALUE)
     public WebResponse<List<DistrictResponse>> getCityByProvinceId(@RequestParam(name = "city_id") Long cityId) {
         List<DistrictResponse> district = districtService.getDistrictByCityId(cityId);
-
         if (!district.isEmpty()) {
             return WebResponse.<List<DistrictResponse>>builder()
                     .data(district)

@@ -21,7 +21,6 @@ public class CityController {
     @GetMapping(path = "/city", produces = MediaType.APPLICATION_JSON_VALUE)
     public WebResponse<List<CityResponse>> getCityByProvinceId(@RequestParam(name = "province_id") Long idProvince) {
         List<CityResponse> cities = cityService.getCityByProvinceId(idProvince);
-
         if (!cities.isEmpty()) {
             return WebResponse.<List<CityResponse>>builder()
                     .status(true)

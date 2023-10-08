@@ -12,14 +12,11 @@ import java.util.stream.Collectors;
 
 @Service
 public class SubDistrictService {
-
     @Autowired
     private SubDistrictRepository subDistrictRepository;
 
-
     public List<SubDistrictResponse> getSubDistrictByDistrictId(Long districtId) {
         List<SubDistrict> subDistricts = subDistrictRepository.findByDistrictId(districtId);
-
         return subDistricts.stream()
                 .map(subDistrict -> SubDistrictResponse.builder()
                         .id(subDistrict.getId())
@@ -27,5 +24,4 @@ public class SubDistrictService {
                         .build())
                 .collect(Collectors.toList());
     }
-
 }
